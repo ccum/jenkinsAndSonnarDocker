@@ -1,4 +1,5 @@
 version: "3.1"
+
 services:
   myjenkins:
     build:
@@ -16,17 +17,20 @@ services:
      - "./jobs:/var/jenkins_home/jobs/"
      - "./m2deps:/var/jenkins_home/.m2/repository/"
      - "./downloads:/var/jenkins_home/downloads"
+     - "/var/run/docker.sock:/var/run/docker.sock"
     secrets:
      - artifactoryPassword
+    #entrypoint: docker
+    #command: ps
   mysonar:
     image: sonarqube:6.3.1
     ports:
-     - "9000"
+     - "9000:9000"
   artifactory:
     image: docker.bintray.io/jfrog/artifactory-oss:5.4.4
     ports:
-     - "8081"
+     - "8081:8081"
+
 secrets:
   artifactoryPassword:
     file: ./secrets/artifactoryPassword
-#run docker compose: docker-compose up
