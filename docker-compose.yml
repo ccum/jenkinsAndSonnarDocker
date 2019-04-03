@@ -14,7 +14,8 @@ services:
       - mysonar
       - artifactory
     volumes:
-     #- "./jobs:/var/jenkins_home/jobs/"
+     - "./jobs:/var/jenkins_home/jobs/"
+     - "./builds:/var/jenkins_home/builds/"
      - "./m2deps:/var/jenkins_home/.m2/repository/"
      - "./downloads:/var/jenkins_home/downloads"
      - "/var/run/docker.sock:/var/run/docker.sock"
