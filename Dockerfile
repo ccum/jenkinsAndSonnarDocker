@@ -35,5 +35,4 @@ RUN apt-get -y install docker-ce
 # give jenkins docker rights
 RUN usermod -aG docker jenkins
 RUN chown -R jenkins:jenkins $JENKINS_HOME
-RUN chown -R jenkins:jenkins $ITEM_ROOTDIR
 USER jenkins
