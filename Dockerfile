@@ -1,7 +1,5 @@
 #this is the base image we use to create our image from
-FROM jenkins
-#just info about who created this
-MAINTAINER Kayan Azimov (email)
+FROM jenkins:2.60.1
 
 #get rid of admin password setup
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
